@@ -1,5 +1,12 @@
-body {
+*{
+    padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #b20000;
+    font-family: 'Lato', sans-serif;
 }
 
 header {
@@ -23,9 +30,11 @@ header {
 }
 
 .tg {
+    background: white;
     border-collapse:collapse;
     border-spacing:0;
-    margin: 0 auto ;
+    margin: 0 auto;
+    border-radius: 10px
 }
 
 td {
@@ -106,4 +115,63 @@ tr {
 .logo-img:hover{
     animation: vibrar 0.8s linear;
     animation-iteration-count: infinite;
+}
+
+.container{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    transform: translateY(25%);
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: auto;
+    width: 300px;
+    height: 400px;
+    background: white;
+    border-radius: 5px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.form input{
+    border: 1px solid rgba(180, 180, 180, 0.3);
+    box-shadow: 1px 1px 2px rgba(100, 100, 100, 0.3),
+    -1px -1px 2px rgba(100, 100, 100, 0.3);
+    display: block;
+    margin: 15px auto 0px auto;
+    height: 30px;
+    width: 80%;
+    border-radius: 2px;
+    transform: translateY(50px);
+    padding-left: 8px;
+}
+
+.form input[type="submit"]{
+    margin-top: 35px;
+    font-family: 'Lato', sans-serif;
+    background: #b20000;
+    width: 30%;
+    color: white;
+    border: none;
+    font-size: 14px;
+}
+
+::placeholder{
+    padding-left: 1px;
+}
+
+.titulo{
+    transform: translate(110px,40px);
+}
+
+.titulo p{
+    color: #b20000;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
 }
