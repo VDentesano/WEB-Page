@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -29,120 +29,121 @@ header {
     color: white;
 }
 
+.container {
+    display: flex;
+    gap: 20px;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+
+    margin-top: 20px;
+
+    padding-left: 10px;
+
+}
+
 .tg {
     background: white;
-    border-collapse:collapse;
-    border-spacing:0;
+    border-collapse: collapse;
+    border-spacing: 0;
     margin: 0 auto;
-    border-radius: 10px
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    border: 5px solid black;
 }
 
 td {
-    border-color:black;
-    border-style:solid;
-    border-width:1px;
-    font-family:Arial, sans-serif;
-    font-size:14px;
-    overflow:hidden;
-    padding:10px 5px;
-    word-break:normal;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
 }
 
 th {
-    border-color:black;
-    border-style:solid;
-    border-width:1px;
-    font-family:Arial, sans-serif;
-    font-size:14px;
-    font-weight:normal;
-    overflow:hidden;
-    padding:10px 5px;
-    word-break:normal;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
 }
 
 tr {
-    text-align:center;
+    text-align: center;
 }
 
 .tg-0pky {
-    border-color:inherit;
-    text-align:left;
-    vertical-align:top
+    border-color: inherit;
+    text-align: left;
+    vertical-align: top
 }
 
-.chad-img {
+.img-berp {
     height: 100px;
 }
 
-.fideo-img {
-    height: 100px;
-}
-
-.berp {
-    height: 100px;
-}
-
-.Luffy-img {
-    height: 100px;
-}
-
-
-.chad-img:hover {
-    filter: grayscale(80%);
-}
-
-.fideo-img:hover {
-    filter: grayscale(80%);
-}
-
-.Luffy-img:hover {
-    filter: grayscale(80%);
-}
-
-.berp:hover {
+.img-berp:hover {
     filter: grayscale(80%);
 }
 
 @keyframes vibrar {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    20% { transform: translate(-10%, -10%) rotate(-3deg); }
-    40% { transform: translate(10%, 10%) rotate(3deg); }
-    60% { transform: translate(-10%, -10%) rotate(-3deg); }
-    80% { transform: translate(10%, 10%) rotate(3deg); }
-    100% { transform: translate(0, 0) rotate(0deg); }
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    20% {
+        transform: translate(-10%, -10%) rotate(-3deg);
+    }
+
+    40% {
+        transform: translate(10%, 10%) rotate(3deg);
+    }
+
+    60% {
+        transform: translate(-10%, -10%) rotate(-3deg);
+    }
+
+    80% {
+        transform: translate(10%, 10%) rotate(3deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
 }
 
-.logo-img:hover{
+.logo-img:hover {
     animation: vibrar 0.8s linear;
     animation-iteration-count: infinite;
 }
 
-.container{
-    display: flex;
-    margin-top: 20px;
-    align-items: center;
-    transform: translateY(25%);
-}
-
-.form{
+.form {
     display: flex;
     justify-content: center;
-    margin-left: 10px;
-    margin-right: auto;
     width: 300px;
     height: 400px;
     background: white;
     border-radius: 5px;
+    margin-left: 50px;
 }
 
-input:focus{
+input:focus {
     outline: none;
 }
 
-.form input{
+.form input {
     border: 1px solid rgba(180, 180, 180, 0.3);
     box-shadow: 1px 1px 2px rgba(100, 100, 100, 0.3),
-    -1px -1px 2px rgba(100, 100, 100, 0.3);
+        -1px -1px 2px rgba(100, 100, 100, 0.3);
     display: block;
     margin: 15px auto 0px auto;
     height: 30px;
@@ -152,7 +153,7 @@ input:focus{
     padding-left: 8px;
 }
 
-.form input[type="submit"]{
+.form input[type="submit"] {
     margin-top: 35px;
     font-family: 'Lato', sans-serif;
     background: #b20000;
@@ -162,16 +163,29 @@ input:focus{
     font-size: 14px;
 }
 
-::placeholder{
+::placeholder {
     padding-left: 1px;
 }
 
-.titulo{
-    transform: translate(110px,40px);
+.titulo {
+    transform: translate(110px, 40px);
 }
 
-.titulo p{
+.titulo p {
     color: #b20000;
     font-family: 'Lato', sans-serif;
     font-weight: bold;
+}
+
+
+
+@media screen and (max-width:970px) {
+    .container {
+        flex-direction: column-reverse;
+        padding-left: 0px;
+        padding-bottom: 10px;
+    }
+    .form {
+        margin-left: 0px;
+    }
 }
