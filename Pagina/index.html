@@ -1,82 +1,77 @@
 <html>
+  <head>
+    <link rel="stylesheet" href="estilos.css" type="text/css" />
+  </head>
 
-<head>
-    <link rel="stylesheet" href="estilos.css" type="text/css">
-</head>
-
-<body class="mi_fondo">
-
+  <body class="mi_fondo">
     <header>
-        <div class="nombre-trabajo">
-            <h2>Introducción al formateo css 20230414</h2>
-        </div>
-        <a class="logo-img" href="http://www.ips.edu.ar" target="_blank">
-            <img src="images/logo.png">
-        </a>
+      <div class="nombre-trabajo">
+        <h2>Introduccion al formateo CSS</h2>
+      </div>
+      <a class="logo-img" href="http://www.ips.edu.ar" target="_blank">
+        <img src="images/logo.png" />
+      </a>
     </header>
 
     <div class="container">
-        <table class="tg">
-            <thead>
-                <tr>
-                    <th><b>Nombre completo</b></th>
-                    <th><b>Edad</b></th>
-                    <th><b>DNI</b></th>
-                    <th><b>Mail</b></th>
-                    <th><b>Foto</b></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Facundo Campodonico</td>
-                    <td>18</td>
-                    <td>46295205</td>
-                    <td>facundocampodonico04@gmail.com</td>
-                    <td><img src="images/chad.jpg" class="img-berp" width="100"></td>
-                </tr>
-                <tr>
-                    <td>Tomas Colombo</td>
-                    <td>18</td>
-                    <td>46494747</td>
-                    <td>tomicolombo20051@gmail.com</td>
-                    <td><img src="images/G5luffy.png" class="img-berp" width="100"></td>
-                </tr>
-                <tr>
-                    <td>Valentino Dentesano</td>
-                    <td>18</td>
-                    <td>46495168</td>
-                    <td>dentesanovalentino@gmail.com</td>
-                    <td><img src="images/freddy salamanca.jpg" class="img-berp" width="100"></td>
-                </tr>
-                <tr>
-                    <td>Franco Lagos</td>
-                    <td>18</td>
-                    <td>46216243</td>
-                    <td>lagosfranco23@gmail.com</td>
-                    <td><img src="images/angelito.jpg" class="img-berp" width="70"></td>
-                </tr>
-            </tbody>
-        </table>
+      <table class="tg">
+        <thead>
+          <tr>
+            <th><b>#</b></th>
+            <th><b>Nombre completo</b></th>
+            <th><b>Edad</b></th>
+            <th><b>DNI</b></th>
+            <th><b>Mail</b></th>
+            <th><b>Foto</b></th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo">
 
-        <div class="form">
-            <form action="" method="post">
-                <div class="titulo">
-                    <p>Registro</p>
-                </div>
-                <input type="text" name="nombre" placeholder="Nombre">
-                <input type="text" name="apellido" placeholder="Apellido">
-                <input type="number" name="dni" placeholder="DNI">
-                <input type="email" name="email" placeholder="Email">
-                <input type="file" name="nombre">
-                <input type="submit" value="Enviar" name="enviar">
-            </form>
-        </div>
+        </tbody>
+      </table>
 
+      <div class="form">
+        <form action="" method="post">
+          <div class="titulo">
+            <p>Registro</p>
+          </div>
+          <input type="text" name="nombre_completo" placeholder="Nombre completo" />
+          <input type="number" name="edad" placeholder="Edad" />
+          <input type="number" name="dni" placeholder="DNI" />
+          <input type="email" name="email" placeholder="Email" />
+          <input type="file" name="file" />
+          <input type="submit" value="Enviar" name="enviar" />
+        </form>
+      </div>
     </div>
 
+    <script>
 
-    <script type="text/javascript" src="funciones.js"></script>
+      const tabla = document.querySelector('#cuerpo');
+      const opciones = {
+        method : 'POST'
+      }
 
-</body>
+      fetch('consulta.php',opciones)
+        .then(respuesta => respuesta.json())
+        .then(resultado =>{
+          resultado.forEach(elemento => {
+          console.log(resultado);
+            tabla.innerHTML += `
+          <tr>
+            <td>${elemento.id}</td>
+            <td>${elemento.nombre_completo}</td>
+            <td>${elemento.edad}</td>
+            <td>${elemento.dni}</td>
+            <td>${elemento.email}</td>
+            <td>
+              <img src="images/${elemento.archivo}" class="img-berp" width="70" />
+            </td>
+          </tr>
+            `
+          });
+        })
+    </script>
 
+  </body>
 </html>

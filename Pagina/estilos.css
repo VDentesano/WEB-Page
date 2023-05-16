@@ -5,6 +5,8 @@
 }
 
 body {
+    overflow: hidden;
+    overflow-y: auto;
     background: #b20000;
     font-family: 'Lato', sans-serif;
 }
@@ -15,6 +17,9 @@ header {
     background-color: black;
     align-items: center;
     justify-content: space-between;
+    font-size: 15px;
+    font-weight: lighter;
+    letter-spacing: 3;
 }
 
 .logo-img {
@@ -30,16 +35,17 @@ header {
 }
 
 .container {
+    position: absolute;
     display: flex;
     gap: 20px;
     flex-direction: row-reverse;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-
-    margin-top: 20px;
-
-    padding-left: 10px;
-
+    min-height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
 .tg {
@@ -51,6 +57,7 @@ header {
     display: block;
     width: 100%;
     max-width: 600px;
+    overflow-x: auto;
 }
 
 td {
@@ -129,10 +136,11 @@ tr {
     display: flex;
     justify-content: center;
     width: 300px;
+    min-width: 300px;
     height: 400px;
     background: white;
     border-radius: 5px;
-    margin-left: 50px;
+    margin-left: 15% ;
 }
 
 input:focus {
@@ -148,18 +156,22 @@ input:focus {
     height: 30px;
     width: 80%;
     border-radius: 2px;
-    transform: translateY(50px);
+    transform: translateY(20px);
     padding-left: 8px;
 }
 
 .form input[type="submit"] {
-    margin-top: 35px;
+    display: grid;
+    place-content: center;
+    margin-top: 30px;
     font-family: 'Lato', sans-serif;
     background: #b20000;
-    width: 30%;
+    width: 100px;
     color: white;
     border: none;
     font-size: 14px;
+    padding-left: 0;
+    border-radius: 5px;
 }
 
 ::placeholder {
@@ -167,7 +179,9 @@ input:focus {
 }
 
 .titulo {
-    transform: translate(110px, 40px);
+    display: block;
+    text-align: center;
+    margin-top: 30px;
 }
 
 .titulo p {
@@ -182,7 +196,8 @@ input:focus {
     .container {
         flex-direction: column-reverse;
         padding-left: 0px;
-        padding-bottom: 10px;
+        padding-bottom: 20px;
+        padding-top: 95;
     }
     .form {
         margin-left: 0px;
