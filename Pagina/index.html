@@ -1,6 +1,12 @@
 <html>
   <head>
     <link rel="stylesheet" href="estilos.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="mi_fondo">
@@ -17,7 +23,7 @@
       <table class="tg">
         <thead>
           <tr>
-            <th><b>#</b></th>
+            <th class="id-th"><b>#</b></th>
             <th><b>Nombre completo</b></th>
             <th><b>Edad</b></th>
             <th><b>DNI</b></th>
@@ -25,38 +31,36 @@
             <th><b>Foto</b></th>
           </tr>
         </thead>
-        <tbody id="cuerpo">
-
-        </tbody>
+        <tbody id="cuerpo"></tbody>
       </table>
 
       <div class="form">
-        <form action="" method="post">
+        <form action="agregar.php" method="post">
           <div class="titulo">
             <p>Registro</p>
           </div>
           <input type="text" name="nombre_completo" placeholder="Nombre completo" />
-          <input type="number" name="edad" placeholder="Edad" />
-          <input type="number" name="dni" placeholder="DNI" />
+          <input type="number" name="edad" placeholder="Edad" id="edad" />
+          <input type="number" name="dni" placeholder="DNI" id="dni" />
           <input type="email" name="email" placeholder="Email" />
-          <input type="file" name="file" />
+          <label for="upload-button"></label>
+          <input type="file" name="file" id="upload-button" />
           <input type="submit" value="Enviar" name="enviar" />
         </form>
       </div>
     </div>
 
     <script>
-
-      const tabla = document.querySelector('#cuerpo');
+      const tabla = document.querySelector("#cuerpo");
       const opciones = {
-        method : 'POST'
-      }
+        method: "POST",
+      };
 
-      fetch('consulta.php',opciones)
-        .then(respuesta => respuesta.json())
-        .then(resultado =>{
-          resultado.forEach(elemento => {
-          console.log(resultado);
+      fetch("consulta.php", opciones)
+        .then((respuesta) => respuesta.json())
+        .then((resultado) => {
+          resultado.forEach((elemento) => {
+            console.log(resultado);
             tabla.innerHTML += `
           <tr>
             <td>${elemento.id}</td>
@@ -68,10 +72,19 @@
               <img src="images/${elemento.archivo}" class="img-berp" width="70" />
             </td>
           </tr>
-            `
+            `;
           });
-        })
-    </script>
+        });
+      var input = document.getElementById("dni");
+      input.addEventListener("input", function () {
+        if (this.value.length > 8) this.value = this.value.slice(0, 8);
+      });
 
+      var input = document.getElementById("edad");
+      input.addEventListener("input", function () {
+        if (this.value.length > 3) this.value = this.value.slice(0, 3);
+        if (this.value >= 120) this.value = 120;
+      });
+    </script>
   </body>
 </html>

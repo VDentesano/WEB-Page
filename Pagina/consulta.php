@@ -11,4 +11,6 @@ if(!empty($resultado)){
 }else{
     echo json_encode([]);
 };
+
+$conn->close();
 ?>
